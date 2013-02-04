@@ -7,4 +7,7 @@ class StaticPagesController < ApplicationController
 
   def technologies
   end
+
+  def about
+  end
 end
