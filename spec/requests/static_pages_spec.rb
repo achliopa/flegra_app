@@ -1,60 +1,52 @@
 require 'spec_helper'
 
 describe "StaticPages" do
+  
+  subject {page} 
 
   describe "Home page" do
 
-    it "should have the h1 'Flegra Engineering'" do
-      visit '/static_pages/home'
-      page.should have_selector('h1', :text => 'Flegra Engineering')
-    end
+    before { visit root_path }
 
-    it "should have the base title" do
-      visit '/static_pages/home'
-      page.should have_selector('title',
-                                 :text => "Flegra Engineering")
-    end
+    it {should have_selector('h1', text: 'Flegra Engineering')}
+    it {should have_selector('title', text: full_title(''))}
+    it {should_not have_selector('title', text: '| Home')}
 
-    it "should not have a custom page title " do
-      visit '/static_pages/home'
-      page.should_not have_selector('title', :text => " | Home")
-    end
   end
 
   describe "Portfolio page" do
-    it "should have the h1 'Portfolio'" do
-      visit '/static_pages/portfolio'
-      page.should have_selector('h1', :text => 'Portfolio')
-    end
 
-    it "should have the title 'Portfolio'" do
-      visit '/static_pages/portfolio'
-      page.should have_selector('title', :text => "Flegra Engineering | Portfolio")
-    end
+    before {visit portfolio_path}
+
+    it {should have_selector('h1', text: 'Portfolio')}
+    it {should have_selector('title', text: full_title('Portfolio'))}
+
   end
 
   describe "Technologies page" do
-    it "should have the h1 'Technologies'" do
-      visit '/static_pages/technologies'
-      page.should have_selector('h1', :text => 'Technologies')
-    end
 
-    it "should have the title 'Technologies'" do
-      visit '/static_pages/technologies'
-      page.should have_selector('title', :text => "Flegra Engineering | Technologies")
-    end
+    before {visit technologies_path} 
+
+    it {should have_selector('h1', text: 'Technologies')}
+    it {should have_selector('title', text: full_title('Technologies'))}
+
   end
 
   describe "About page" do
-    it "should have the h1 'About Us'" do
-      visit '/static_pages/about'
-      page.should have_selector('h1', :text => 'About Us')
-    end
 
-    it "should have the title 'About Us'" do
-      visit '/static_pages/about'
-      page.should have_selector('title', :text => "Flegra Engineering | About Us")
-    end
+    before {visit about_path}
+
+    it {should have_selector('h1', text: 'About Us')}
+    it {should have_selector('title', text: full_title('About Us'))}
+
   end
 
+  describe "Contact page" do
+    
+    before {visit contact_path}
+
+    it {should have_selector('h1', text: 'Contact')}
+    it {should have_selector('title',text: full_title('Contact'))}
+
+  end
 end

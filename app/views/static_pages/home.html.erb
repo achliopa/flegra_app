@@ -1,5 +1,11 @@
-<h1>Flegra Engineering</h1>
-<p>
-  This is the home page for the
-  <a href="http://www.flegra.com/">Flegra Engineering Web Site</a>
-</p>
+<div class="center hero-unit">
+  <h1>Flegra Engineering</h1>
+  <h2>
+    This is the home page for the
+    <a href="http://www.flegra.com/">Flegra Engineering</a>  Web Site
+ </h2>
+   <%= link_to "Learn about us!", about_path, class: "btn btn-large btn primary" %>
+   <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn primary" %>
+</div>
+
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
